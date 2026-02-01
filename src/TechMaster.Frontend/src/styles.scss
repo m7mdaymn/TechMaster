@@ -1,0 +1,436 @@
+// TechMaster Color Palette
+$primary: #247090;
+$primary-light: #3a8db0;
+$primary-dark: #1a5570;
+$black: #000000;
+$white: #ffffff;
+$gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-400: #9ca3af;
+$gray-500: #6b7280;
+$gray-600: #4b5563;
+$gray-700: #374151;
+$gray-800: #1f2937;
+$gray-900: #111827;
+
+$success: #10b981;
+$warning: #f59e0b;
+$error: #ef4444;
+$info: #3b82f6;
+
+// CSS Custom Properties for use in components
+:root {
+  --color-primary: #{$primary};
+  --color-primary-light: #{$primary-light};
+  --color-primary-dark: #{$primary-dark};
+  --color-black: #{$black};
+  --color-white: #{$white};
+  --color-gray-50: #{$gray-50};
+  --color-gray-100: #{$gray-100};
+  --color-gray-200: #{$gray-200};
+  --color-gray-300: #{$gray-300};
+  --color-gray-400: #{$gray-400};
+  --color-gray-500: #{$gray-500};
+  --color-gray-600: #{$gray-600};
+  --color-gray-700: #{$gray-700};
+  --color-gray-800: #{$gray-800};
+  --color-gray-900: #{$gray-900};
+  --color-dark: #{$gray-900};
+  --color-success: #{$success};
+  --color-warning: #{$warning};
+  --color-error: #{$error};
+  --color-info: #{$info};
+  --font-family-en: 'Inter', sans-serif;
+  --font-family-ar: 'Cairo', sans-serif;
+}
+
+// Typography
+$font-family-en: 'Inter', sans-serif;
+$font-family-ar: 'Cairo', sans-serif;
+
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Global Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-en;
+  background-color: $white;
+  color: $gray-900;
+  line-height: 1.6;
+  direction: ltr;
+  text-align: left;
+}
+
+// RTL Support
+[dir="rtl"] {
+  text-align: right;
+  
+  .text-left {
+    text-align: right !important;
+  }
+  
+  .text-right {
+    text-align: left !important;
+  }
+  
+  .ml-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+  
+  .mr-auto {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+  }
+}
+
+// Utility Classes
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  padding: 4rem 0;
+  
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+  }
+}
+
+// Typography
+.heading-1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.heading-2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+.heading-3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+// Buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.btn-primary {
+  background-color: $primary;
+  color: $white;
+  
+  &:hover:not(:disabled) {
+    background-color: $primary-dark;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-secondary {
+  background-color: $white;
+  color: $primary;
+  border: 2px solid $primary;
+  
+  &:hover:not(:disabled) {
+    background-color: $primary;
+    color: $white;
+  }
+}
+
+.btn-dark {
+  background-color: $black;
+  color: $white;
+  
+  &:hover:not(:disabled) {
+    background-color: $gray-800;
+  }
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #25d366;
+  color: $white;
+  margin-top: 0.75rem;
+  
+  &:hover:not(:disabled) {
+    background-color: #1da851;
+  }
+  
+  .material-icons {
+    font-size: 1.25rem;
+  }
+}
+
+.btn-success {
+  background-color: #10b981;
+  color: $white;
+  
+  &:hover:not(:disabled) {
+    background-color: #059669;
+  }
+}
+
+.btn-danger {
+  background-color: #ef4444;
+  color: $white;
+  
+  &:hover:not(:disabled) {
+    background-color: #dc2626;
+  }
+}
+
+// Cards
+.card {
+  background: $white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-4px);
+  }
+}
+
+.card-premium {
+  border: 1px solid $gray-200;
+  
+  &:hover {
+    border-color: $primary;
+  }
+}
+
+// Form Styles
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: $gray-700;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid $gray-200;
+  border-radius: 0.5rem;
+  background-color: $white;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.1);
+  }
+  
+  &::placeholder {
+    color: $gray-400;
+  }
+}
+
+.form-error {
+  color: $error;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.5s ease-out;
+}
+
+// Badge
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  
+  &.badge-primary {
+    background-color: rgba($primary, 0.1);
+    color: $primary;
+  }
+  
+  &.badge-success {
+    background-color: rgba($success, 0.1);
+    color: $success;
+  }
+  
+  &.badge-warning {
+    background-color: rgba($warning, 0.1);
+    color: $warning;
+  }
+  
+  &.badge-error {
+    background-color: rgba($error, 0.1);
+    color: $error;
+  }
+}
+
+// Loading
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid $gray-200;
+  border-top-color: $primary;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray-300;
+  border-radius: 4px;
+  
+  &:hover {
+    background: $gray-400;
+  }
+}
+
+// Material overrides
+.mat-mdc-snack-bar-container {
+  &.success-snackbar {
+    --mdc-snackbar-container-color: #{$success};
+    --mat-mdc-snack-bar-button-color: #{$white};
+  }
+  
+  &.error-snackbar {
+    --mdc-snackbar-container-color: #{$error};
+    --mat-mdc-snack-bar-button-color: #{$white};
+  }
+}
+
+// Toastr overrides
+.toast-container {
+  .ngx-toastr {
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+}

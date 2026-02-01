@@ -1,0 +1,301 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-background">
+    <div class="hero-overlay"></div>
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+    </div>
+    <div class="animated-lines">
+      <div class="line line-1"></div>
+      <div class="line line-2"></div>
+      <div class="line line-3"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge animate-slide-down">
+          <span class="badge-icon">🚀</span>
+          <span>Start Your Journey</span>
+        </div>
+        <h1 class="hero-title animate-fade-in">
+          Master Technology Skills
+          <span class="highlight gradient-text">Today</span>
+        </h1>
+        <p class="hero-subtitle animate-fade-in-delay">
+          Learn from industry experts and kickstart your tech career
+        </p>
+        <div class="hero-cta animate-fade-in-delay-2">
+          <a routerLink="/courses" class="btn btn-primary btn-lg pulse-animation">
+            <span class="btn-icon">📚</span>
+            Browse Courses
+          </a>
+          <a routerLink="/auth/register" class="btn btn-outline btn-lg hover-lift">
+            <span class="btn-icon">✨</span>
+            Start Learning
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <span>Scroll Down</span>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features section">
+  <div class="section-decoration">
+    <div class="decoration-line left"></div>
+    <div class="decoration-circle"></div>
+    <div class="decoration-line right"></div>
+  </div>
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">Why Choose Us</span>
+      <h2 class="section-title">Features That Make Us Stand Out</h2>
+      <p class="section-subtitle">Discover what makes TechMaster the best platform for learning</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card animate-on-scroll hover-float" style="--delay: 0">
+        <div class="feature-icon gradient-bg">
+          <span class="material-icons">school</span>
+        </div>
+        <h3>Expert Instructors</h3>
+        <p>Learn from industry professionals with years of experience</p>
+        <div class="feature-line"></div>
+      </div>
+      <div class="feature-card animate-on-scroll hover-float" style="--delay: 1">
+        <div class="feature-icon gradient-bg">
+          <span class="material-icons">code</span>
+        </div>
+        <h3>Hands-on Projects</h3>
+        <p>Build real-world projects to solidify your skills</p>
+        <div class="feature-line"></div>
+      </div>
+      <div class="feature-card animate-on-scroll hover-float" style="--delay: 2">
+        <div class="feature-icon gradient-bg">
+          <span class="material-icons">work</span>
+        </div>
+        <h3>Career Support</h3>
+        <p>Get guidance and support for your tech career</p>
+        <div class="feature-line"></div>
+      </div>
+      <div class="feature-card animate-on-scroll hover-float" style="--delay: 3">
+        <div class="feature-icon gradient-bg">
+          <span class="material-icons">groups</span>
+        </div>
+        <h3>Community Access</h3>
+        <p>Join a vibrant community of learners and mentors</p>
+        <div class="feature-line"></div>
+      </div>
+      <div class="feature-card animate-on-scroll hover-float" style="--delay: 4">
+        <div class="feature-icon gradient-bg">
+          <span class="material-icons">verified</span>
+        </div>
+        <h3>Certificates</h3>
+        <p>Earn recognized certificates upon course completion</p>
+        <div class="feature-line"></div>
+      </div>
+      <div class="feature-card animate-on-scroll hover-float" style="--delay: 5">
+        <div class="feature-icon gradient-bg">
+          <span class="material-icons">all_inclusive</span>
+        </div>
+        <h3>Lifetime Access</h3>
+        <p>Access your courses anytime, anywhere, forever</p>
+        <div class="feature-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Courses Section -->
+<section class="courses section">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">Popular Courses</span>
+      <h2 class="section-title">Explore Courses</h2>
+      <p class="section-subtitle">Find the perfect course for you</p>
+    </div>
+    
+    @if (isLoading()) {
+      <div class="loading-container">
+        <div class="loading-spinner"></div>
+        <p>Loading...</p>
+      </div>
+    } @else {
+      <div class="courses-grid">
+        @for (course of courses(); track course.id) {
+          <div class="course-card animate-on-scroll hover-lift" style="--delay: {{ $index }}">
+            <div class="course-image">
+              <img [src]="mediaService.getCourseThumbnail(course.thumbnailUrl)" [alt]="getCourseTitle(course)">
+              <div class="course-overlay">
+                <a [routerLink]="['/courses', course.slug]" class="btn btn-primary">View Details</a>
+              </div>
+              @if (course.price === 0) {
+                <span class="course-badge free">Free</span>
+              } @else {
+                <span class="course-badge price">{{ course.price }} EGP</span>
+              }
+            </div>
+            <div class="course-content">
+              <div class="course-meta">
+                <span class="course-category">{{ course.categoryName }}</span>
+                <span class="course-level">{{ course.level }}</span>
+              </div>
+              <h3 class="course-title">{{ getCourseTitle(course) }}</h3>
+              <p class="course-description">{{ getCourseDescription(course) }}</p>
+              <div class="course-footer">
+                <div class="course-stats">
+                  <span><i class="material-icons">people</i> {{ course.enrollmentCount || 0 }}</span>
+                </div>
+                <a [routerLink]="['/courses', course.slug]" class="course-link">
+                  Enroll Now <i class="material-icons">arrow_forward</i>
+                </a>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+      <div class="section-footer animate-on-scroll">
+        <a routerLink="/courses" class="btn btn-outline btn-lg">
+          View All Courses
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Instructors Section -->
+<section class="instructors section">
+  <div class="section-decoration alt">
+    <div class="decoration-dots"></div>
+  </div>
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">Our Team</span>
+      <h2 class="section-title">Meet Our Instructors</h2>
+      <p class="section-subtitle">Learn from the best in the industry</p>
+    </div>
+    <div class="instructors-grid">
+      @for (instructor of instructors(); track instructor.id) {
+        <div class="instructor-card animate-on-scroll hover-float" style="--delay: {{ $index }}">
+          <div class="instructor-image-wrapper">
+            <div class="instructor-image">
+              <img [src]="getInstructorImage(instructor)" [alt]="instructor.name">
+            </div>
+          </div>
+          <div class="instructor-info">
+            <h3 class="instructor-name">{{ instructor.name }}</h3>
+            <p class="instructor-specialty">{{ instructor.specialty }}</p>
+            <p class="instructor-bio">{{ instructor.bio }}</p>
+            <div class="instructor-stats">
+              <div class="stat">
+                <span class="stat-value">{{ instructor.courseCount }}</span>
+                <span class="stat-label">Courses</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value">{{ getInstructorStudentCount(instructor) }}</span>
+                <span class="stat-label">Students</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials section">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">Testimonials</span>
+      <h2 class="section-title">What Our Students Say</h2>
+      <p class="section-subtitle">Hear from our successful learners</p>
+    </div>
+    <div class="testimonials-slider">
+      @for (testimonial of testimonials(); track testimonial.id) {
+        <div class="testimonial-card animate-on-scroll" style="--delay: {{ $index }}">
+          <div class="testimonial-quote">
+            <span class="material-icons quote-icon">format_quote</span>
+          </div>
+          <p class="testimonial-content">"{{ getTestimonialContent(testimonial) }}"</p>
+          <div class="testimonial-rating">
+            @for (star of [1,2,3,4,5]; track star) {
+              <span class="material-icons star" [class.filled]="star <= testimonial.rating">
+                {{ star <= testimonial.rating ? 'star' : 'star_border' }}
+              </span>
+            }
+          </div>
+          <div class="testimonial-author">
+            <img [src]="mediaService.getAvatarUrl(testimonial.authorImageUrl)" [alt]="getTestimonialAuthor(testimonial)">
+            <div class="author-info">
+              <h4>{{ getTestimonialAuthor(testimonial) }}</h4>
+              <p>{{ getTestimonialTitle(testimonial) }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Categories Section -->
+<section class="categories section">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">Categories</span>
+      <h2 class="section-title">Browse by Category</h2>
+      <p class="section-subtitle">Find courses in your area of interest</p>
+    </div>
+    <div class="categories-grid">
+      @for (category of categories(); track category.id) {
+        <a [routerLink]="['/courses']" [queryParams]="{category: category.id}" class="category-card animate-on-scroll hover-lift" style="--delay: {{ $index }}">
+          <div class="category-icon">
+            <i class="material-icons">{{ category.iconName || 'category' }}</i>
+          </div>
+          <h3>{{ getCategoryTitle(category) }}</h3>
+          <p>{{ getCategoryDescription(category) }}</p>
+          <span class="course-count">{{ category.courseCount || 0 }} Courses</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta section">
+  <div class="cta-background">
+    <div class="cta-shapes">
+      <div class="cta-shape cta-shape-1"></div>
+      <div class="cta-shape cta-shape-2"></div>
+      <div class="cta-shape cta-shape-3"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="cta-content animate-on-scroll">
+      <h2 class="cta-title">Ready to Start Your Journey?</h2>
+      <p class="cta-subtitle">Join thousands of learners and transform your career today</p>
+      <div class="cta-buttons">
+        <a routerLink="/auth/register" class="btn btn-white btn-lg pulse-animation">
+          <span class="btn-icon">🎯</span>
+          Get Started Now
+        </a>
+        <a routerLink="/contact" class="btn btn-outline-white btn-lg">
+          <span class="btn-icon">💬</span>
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

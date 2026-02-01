@@ -1,0 +1,1 @@
+var e={production:!1,apiUrl:"http://localhost:5000/api",hubUrl:"http://localhost:5000/hubs",whatsappNumber:"01029907297",defaultLanguage:"en",supportedLanguages:["en","ar"],googleClientId:"YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"};export{e as a};

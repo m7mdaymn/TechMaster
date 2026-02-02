@@ -91,12 +91,6 @@ interface Enrollment {
           }
         </div>
 
-        <select [(ngModel)]="paymentFilter" (ngModelChange)="filterEnrollments()">
-          <option value="all">All Payments</option>
-          <option value="Paid">Paid</option>
-          <option value="Pending">Pending</option>
-          <option value="Free">Free</option>
-        </select>
 
         <input 
           type="date" 
@@ -115,7 +109,6 @@ interface Enrollment {
               <th>Enrolled Date</th>
               <th>Progress</th>
               <th>Status</th>
-              <th>Payment</th>
               <th>Amount</th>
               <th>Actions</th>
             </tr>
@@ -139,12 +132,6 @@ interface Enrollment {
                 </td>
                 <td>{{ enrollment.enrolledAt | date:'mediumDate' }}</td>
                 <td>
-                  <div class="progress-cell">
-                    <div class="progress-bar">
-                      <div class="progress-fill" [style.width.%]="enrollment.progress"></div>
-                    </div>
-                    <span>{{ enrollment.progress }}%</span>
-                  </div>
                 </td>
                 <td>
                   <span class="status-badge" [class]="enrollment.status.toLowerCase()">
@@ -152,13 +139,8 @@ interface Enrollment {
                   </span>
                 </td>
                 <td>
-                  <span class="payment-badge" [class]="enrollment.paymentStatus.toLowerCase()">
-                    {{ enrollment.paymentStatus }}
-                  </span>
-                </td>
-                <td>
                   @if (enrollment.amount === 0) {
-                    <span class="free-text">Free</span>
+                    <span class="free-text"></span>
                   } @else {
                     <span>{{ enrollment.amount }} EGP</span>
                   }

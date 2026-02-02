@@ -140,7 +140,7 @@ interface Enrollment {
                 </td>
                 <td>
                   @if (enrollment.amount === 0) {
-                    <span class="free-text"></span>
+                    <span class="free-text">Free</span>
                   } @else {
                     <span>{{ enrollment.amount }} EGP</span>
                   }
@@ -149,10 +149,11 @@ interface Enrollment {
                   <div class="actions-cell">
                     <button class="action-btn" title="View Details" (click)="viewDetails(enrollment)">👁️</button>
                     
+                    @if ( enrollment.paymentStatus === 'PaymentPending' || enrollment.status === 'Pending' || enrollment.status === 'UnderReview') {
                       <button class="action-btn success" title="Approve Enrollment" (click)="approveEnrollment(enrollment)">✅ Approve</button>
                       <button class="action-btn danger" title="Reject Enrollment" (click)="rejectEnrollment(enrollment)">❌ Reject</button>
+                    }
                     
-              
                     @if (enrollment.paymentStatus === 'PaymentPending' && enrollment.status !== 'Pending' && enrollment.status !== 'UnderReview') {
                       <button class="action-btn success" title="Confirm Payment" (click)="confirmPayment(enrollment)">💰 Confirm</button>
                     }
@@ -266,13 +267,9 @@ interface Enrollment {
             }
           </div>
           <div class="modal-footer">
-            @if (selectedEnrollment.status === 'Pending' || selectedEnrollment.status === 'UnderReview') {
               <button class="approve-btn" (click)="approveEnrollment(selectedEnrollment); closeModal()">✅ Approve</button>
               <button class="reject-btn" (click)="rejectEnrollment(selectedEnrollment); closeModal()">❌ Reject</button>
-            }
-            @if (selectedEnrollment.status === 'Active' || selectedEnrollment.status === 'Approved') {
               <button class="receipt-btn" (click)="generateReceipt(selectedEnrollment)">🧾 Generate Receipt</button>
-            }
             <button class="close-modal-btn" (click)="closeModal()">Close</button>
           </div>
         </div>

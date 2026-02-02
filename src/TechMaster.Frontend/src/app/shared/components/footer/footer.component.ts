@@ -300,7 +300,6 @@ export class FooterComponent implements OnInit {
             facebook: getValue('social.facebook') || getValue('facebook') || getValue('FacebookUrl'),
             instagram: getValue('social.instagram') || getValue('instagram') || getValue('InstagramUrl'),
             linkedIn: getValue('social.linkedin') || getValue('linkedin') || getValue('linkedIn') || getValue('LinkedInUrl'),
-            twitter: getValue('social.twitter') || getValue('twitter') || getValue('TwitterUrl'),
             tiktok: getValue('social.tiktok') || getValue('tiktok') || getValue('TikTokUrl'),
             youtube: getValue('social.youtube') || getValue('youtube') || getValue('YouTubeUrl')
           });

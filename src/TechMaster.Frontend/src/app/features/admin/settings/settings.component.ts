@@ -166,13 +166,13 @@ interface Settings {
 
               <div class="form-group">
                 <label>WhatsApp Number *</label>
-                <input type="tel" [(ngModel)]="settings.payment.whatsappNumber" placeholder="+201029907297">
+                <input disabled type="tel" [(ngModel)]="settings.payment.whatsappNumber" placeholder="+201029907297">
                 <span class="help-text">Students will contact this number for payment verification</span>
               </div>
 
               <div class="form-group">
                 <label>Currency</label>
-                <select [(ngModel)]="settings.payment.currency">
+                <select disabled [(ngModel)]="settings.payment.currency">
                   <option value="EGP">EGP (ج.م)</option>
                   <option value="SAR">SAR (ر.س)</option>
                   <option value="AED">AED (د.إ)</option>

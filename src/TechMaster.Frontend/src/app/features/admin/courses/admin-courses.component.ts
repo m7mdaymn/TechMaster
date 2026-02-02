@@ -120,12 +120,6 @@ interface Course {
                       <button class="action-btn success" title="Approve" (click)="approveCourse(course)">✅</button>
                       <button class="action-btn danger" title="Reject" (click)="rejectCourse(course)">❌</button>
                     }
-                    @if (course.status === 'Published') {
-                      <button class="action-btn warning" title="Archive" (click)="archiveCourse(course)">📦</button>
-                    }
-                    @if (course.status === 'Archived' || course.status === 'Draft' || course.status === 'Rejected') {
-                      <button class="action-btn success" title="Publish" (click)="republishCourse(course)">🚀</button>
-                    }
                     <button class="action-btn" title="Edit" (click)="editCourse(course)">✏️</button>
                     <button class="action-btn danger" title="Delete" (click)="deleteCourse(course)">🗑️</button>
                   </div>

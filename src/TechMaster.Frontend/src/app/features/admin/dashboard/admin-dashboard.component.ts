@@ -40,10 +40,6 @@ interface DashboardStats {
             <span class="stat-value">{{ stats().totalUsers | number }}</span>
             <span class="stat-label">Total Users</span>
           </div>
-          <div class="stat-trend" [class.up]="stats().userGrowthPercentage >= 0" [class.down]="stats().userGrowthPercentage < 0">
-            <span class="material-icons">{{ stats().userGrowthPercentage >= 0 ? 'trending_up' : 'trending_down' }}</span>
-            <span>{{ stats().userGrowthPercentage | number:'1.0-1' }}%</span>
-          </div>
         </div>
 
         <div class="stat-card">
@@ -53,10 +49,6 @@ interface DashboardStats {
           <div class="stat-content">
             <span class="stat-value">{{ stats().totalCourses | number }}</span>
             <span class="stat-label">Total Courses</span>
-          </div>
-          <div class="stat-trend" [class.up]="stats().courseGrowthPercentage >= 0" [class.down]="stats().courseGrowthPercentage < 0">
-            <span class="material-icons">{{ stats().courseGrowthPercentage >= 0 ? 'trending_up' : 'trending_down' }}</span>
-            <span>{{ stats().courseGrowthPercentage | number:'1.0-1' }}%</span>
           </div>
         </div>
 
@@ -68,10 +60,7 @@ interface DashboardStats {
             <span class="stat-value">{{ stats().totalEnrollments | number }}</span>
             <span class="stat-label">Total Enrollments</span>
           </div>
-          <div class="stat-trend" [class.up]="stats().enrollmentGrowthPercentage >= 0" [class.down]="stats().enrollmentGrowthPercentage < 0">
-            <span class="material-icons">{{ stats().enrollmentGrowthPercentage >= 0 ? 'trending_up' : 'trending_down' }}</span>
-            <span>{{ stats().enrollmentGrowthPercentage | number:'1.0-1' }}%</span>
-          </div>
+
         </div>
 
         <div class="stat-card">
@@ -81,10 +70,6 @@ interface DashboardStats {
           <div class="stat-content">
             <span class="stat-value">{{ stats().totalRevenue | currency:'EGP':'symbol':'1.0-0' }}</span>
             <span class="stat-label">Total Revenue</span>
-          </div>
-          <div class="stat-trend" [class.up]="stats().revenueGrowthPercentage >= 0" [class.down]="stats().revenueGrowthPercentage < 0">
-            <span class="material-icons">{{ stats().revenueGrowthPercentage >= 0 ? 'trending_up' : 'trending_down' }}</span>
-            <span>{{ stats().revenueGrowthPercentage | number:'1.0-1' }}%</span>
           </div>
         </div>
       </div>
@@ -261,10 +246,7 @@ interface DashboardStats {
                   {{ selectedEnrollment()?.status }}
                 </span>
               </div>
-              <div class="detail-row">
-                <span class="detail-label">Payment Method:</span>
-                <span class="detail-value">{{ selectedEnrollment()?.paymentMethod }}</span>
-              </div>
+
               <div class="detail-row">
                 <span class="detail-label">Enrolled At:</span>
                 <span class="detail-value">{{ selectedEnrollment()?.enrolledAt | date:'medium' }}</span>

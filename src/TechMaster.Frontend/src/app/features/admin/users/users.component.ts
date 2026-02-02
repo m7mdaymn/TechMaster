@@ -61,14 +61,6 @@ import { ToastrService } from 'ngx-toastr';
             Students
           </button>
         </div>
-
-        <div class="status-filter">
-          <select [(ngModel)]="statusFilter" (ngModelChange)="filterUsers()">
-            <option value="all">All Statuses</option>
-            <option value="Active">Active</option>
-            <option value="Suspended">Suspended</option>
-          </select>
-        </div>
       </div>
 
       <!-- Users Table -->

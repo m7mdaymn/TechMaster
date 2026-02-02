@@ -92,11 +92,7 @@ interface Enrollment {
         </div>
 
 
-        <input 
-          type="date" 
-          [(ngModel)]="dateFilter" 
-          (ngModelChange)="filterEnrollments()"
-        >
+     
       </div>
 
       <!-- Enrollments Table -->
@@ -107,7 +103,6 @@ interface Enrollment {
               <th>Student</th>
               <th>Course</th>
               <th>Enrolled Date</th>
-              <th>Progress</th>
               <th>Status</th>
               <th>Amount</th>
               <th>Actions</th>
@@ -158,13 +153,6 @@ interface Enrollment {
                       <button class="action-btn success" title="Confirm Payment" (click)="confirmPayment(enrollment)">💰 Confirm</button>
                     }
                     
-                    @if (enrollment.status === 'Active' && enrollment.paymentStatus === 'Paid') {
-                      <button class="action-btn warning" title="Refund" (click)="refund(enrollment)">💸 Refund</button>
-                    }
-                    
-                    @if (enrollment.status !== 'Pending' && enrollment.status !== 'UnderReview') {
-                      <button class="action-btn danger" title="Cancel" (click)="cancel(enrollment)">🗑️ Cancel</button>
-                    }
                   </div>
                 </td>
               </tr>
@@ -875,9 +863,6 @@ export class EnrollmentsComponent implements OnInit {
 
   statusTabs = [
     { value: 'all', label: '📋 All' },
-    { value: 'Pending,UnderReview', label: '⏳ Needs Review' },
-    { value: 'Active', label: '✅ Active' },
-    { value: 'Completed', label: '🎓 Completed' },
     { value: 'Rejected', label: '❌ Rejected' }
   ];
 

@@ -212,21 +212,13 @@ npm test
 - `production` - Production mode flag
 - `whatsappNumber` - Support WhatsApp number
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## 📄 License
 
 This project is proprietary software. All rights reserved.
 
 ## 👥 Authors
 
-- TechMaster Development Team
+- Mohamed Ayman Adel
 
 ## 📞 Support
 
@@ -238,12 +230,11 @@ WhatsApp: +201108894920
 ## 🎯 Key Highlights
 
 - ✅ **95+ API Endpoints** - Comprehensive REST API
-- ✅ **Zero Build Errors** - Clean, production-ready code
-- ✅ **EGP Currency** - Standardized to Egyptian Pound
 - ✅ **Real-time Chat** - SignalR-powered messaging
 - ✅ **Progress Tracking** - Automatic session completion
 - ✅ **Multi-Content Support** - Videos, PDFs, Articles, Quizzes
 - ✅ **Role-Based Access** - Student, Instructor, Admin roles
 - ✅ **Responsive Design** - Mobile-friendly UI
-
+- ✅ backend deployed on https://techmasterapi.runasp.net/api/swagger/index.html
+- ✅ FrontEnd deployed on https://techmasteracademey.vercel.app/
 Built with ❤️ using ASP.NET Core & Angular

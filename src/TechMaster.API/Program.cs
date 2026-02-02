@@ -132,7 +132,8 @@ builder.Services.AddCors(options =>
                 "http://localhost:4200",
                 "http://localhost:4201",
                 "http://localhost:3000",
-                "https://techmasterapi.runasp.net"  // Allow API to call itself
+                "https://techmasterapi.runasp.net",
+                "https://techmasteracademey.vercel.app"  // Production frontend
             )
             .SetIsOriginAllowedToAllowWildcardSubdomains()
             .AllowAnyMethod()

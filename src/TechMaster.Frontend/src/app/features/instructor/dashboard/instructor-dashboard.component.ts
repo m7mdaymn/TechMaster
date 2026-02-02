@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '@core/services/auth.service';
 import { DashboardService, InstructorCourse, InstructorRecentEnrollment } from '@core/services/dashboard.service';
+import { User } from '@core/services/user.service';
+import { MediaService } from '@app/core/services/media.service';
 
 interface InstructorStats {
   totalCourses: number;
@@ -97,8 +99,6 @@ interface InstructorStats {
                   <tr>
                     <th>Course</th>
                     <th>Students</th>
-                    <th>Revenue</th>
-                    <th>Rating</th>
                     <th>Completion</th>
                     <th>Status</th>
                     <th>Actions</th>
@@ -109,18 +109,10 @@ interface InstructorStats {
                     <tr>
                       <td>
                         <div class="course-cell">
-                          <img [src]="course.thumbnail || 'assets/images/course-placeholder.jpg'" [alt]="course.title">
                           <span>{{ course.title }}</span>
                         </div>
                       </td>
                       <td>{{ course.enrollments | number }}</td>
-                      <td>{{ course.revenue | currency:'EGP':'symbol':'1.0-0' }}</td>
-                      <td>
-                        <div class="rating-cell">
-                          <span class="material-icons">star</span>
-                          {{ course.rating | number:'1.1-1' }}
-                        </div>
-                      </td>
                       <td>
                         <div class="completion-bar">
                           <div class="bar-fill" [style.width.%]="course.completionRate"></div>

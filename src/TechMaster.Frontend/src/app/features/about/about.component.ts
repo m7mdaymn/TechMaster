@@ -33,21 +33,18 @@ import { MediaService } from '@core/services/media.service';
           <!-- Stats Row -->
           <div class="stats-row">
             <div class="stat-item">
-              <span class="stat-num">{{ stats()?.students || '10,000' }}+</span>
+              <span class="stat-num">{{ stats()?.students  }}+</span>
               <span class="stat-label">Students</span>
             </div>
             <div class="stat-item">
-              <span class="stat-num">{{ stats()?.courses || '100' }}+</span>
+              <span class="stat-num">{{ stats()?.courses }}+</span>
               <span class="stat-label">Courses</span>
             </div>
             <div class="stat-item">
-              <span class="stat-num">{{ stats()?.instructors || '50' }}+</span>
+              <span class="stat-num">{{ stats()?.instructors }}+</span>
               <span class="stat-label">Instructors</span>
             </div>
-            <div class="stat-item">
-              <span class="stat-num">{{ stats()?.rating || '4.9' }}</span>
-              <span class="stat-label">Rating</span>
-            </div>
+
           </div>
         </div>
       </section>
@@ -57,17 +54,14 @@ import { MediaService } from '@core/services/media.service';
         <div class="container">
           <div class="mission-grid">
             <div class="mission-card">
-              <div class="card-icon">🎯</div>
               <h3>Our Mission</h3>
               <p>To democratize technology education and empower individuals with the skills they need to succeed in the digital economy.</p>
             </div>
             <div class="mission-card">
-              <div class="card-icon">👁️</div>
               <h3>Our Vision</h3>
               <p>To become the leading tech education platform in the Middle East, producing world-class developers and innovators.</p>
             </div>
             <div class="mission-card">
-              <div class="card-icon">💎</div>
               <h3>Our Values</h3>
               <p>Excellence, Innovation, Accessibility, and Community. These principles guide everything we do.</p>
             </div>
@@ -124,9 +118,7 @@ import { MediaService } from '@core/services/media.service';
                   <div class="instructor-stats">
                     <span>📚 {{ instructor.courseCount || 0 }} courses</span>
                     <span>👥 {{ instructor.studentCount || 0 }} students</span>
-                    @if (instructor.rating) {
-                      <span>⭐ {{ instructor.rating | number:'1.1-1' }}</span>
-                    }
+
                   </div>
                 </div>
               }

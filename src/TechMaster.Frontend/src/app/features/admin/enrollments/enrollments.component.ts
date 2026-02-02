@@ -126,8 +126,7 @@ interface Enrollment {
                   </div>
                 </td>
                 <td>{{ enrollment.enrolledAt | date:'mediumDate' }}</td>
-                <td>
-                </td>
+
                 <td>
                   <span class="status-badge" [class]="enrollment.status.toLowerCase()">
                     {{ enrollment.status }}

@@ -97,8 +97,6 @@ interface InstructorCourse {
                 <th>Course</th>
                 <th>Status</th>
                 <th>Enrollments</th>
-                <th>Rating</th>
-                <th>Revenue</th>
                 <th>Last Updated</th>
                 <th>Actions</th>
               </tr>
@@ -122,15 +120,6 @@ interface InstructorCourse {
                   </td>
                   <td>
                     <span class="stat-value">{{ course.enrollments }}</span>
-                  </td>
-                  <td>
-                    <div class="rating-cell">
-                      <span class="star">⭐</span>
-                      <span>{{ course.rating.toFixed(1) }}</span>
-                    </div>
-                  </td>
-                  <td>
-                    <span class="revenue-value">\${{ course.revenue.toLocaleString() }}</span>
                   </td>
                   <td>
                     <span class="date-value">{{ course.lastUpdated | date:'mediumDate' }}</span>

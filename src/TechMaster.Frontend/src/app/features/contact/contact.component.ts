@@ -41,7 +41,7 @@ interface FAQ {
             <div class="contact-card">
               <div class="card-icon">📍</div>
               <h3>Visit Us</h3>
-              <p>Cairo, Egypt<br>Smart Village, Building B2</p>
+              <p>Cairo, Egypt<br></p>
             </div>
             <div class="contact-card">
               <div class="card-icon">📧</div>
@@ -774,9 +774,9 @@ export class ContactComponent implements OnInit {
   
   // Settings from API
   whatsappNumber = signal(environment.whatsappNumber || '201029907297');
-  contactEmail = signal('support@techmaster.com');
-  contactPhone = signal('+201029907297');
-  contactAddress = signal('Cairo, Egypt\nSmart Village, Building B2');
+  contactEmail = signal('techmasterr.official@gmail.com');
+  contactPhone = signal('+201108894920');
+  contactAddress = signal('Cairo, Egypt\n');
   
   // Social links from API
   socialLinks = signal<{

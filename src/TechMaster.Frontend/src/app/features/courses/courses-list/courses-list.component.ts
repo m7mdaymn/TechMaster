@@ -233,7 +233,7 @@ interface CategoryItem {
                         <div class="card-footer">
                           <div class="stats">
                             <span class="students">👥 {{ course.enrollmentCount || 0 }}</span>
-                            <span class="duration">🕐 {{ course.durationHours || 1 }}h</span>
+                            <span class="duration">🕐 {{ course.durationInHours }}1h</span>
                           </div>
                           <div class="price">
                             @if (course.price === 0) {

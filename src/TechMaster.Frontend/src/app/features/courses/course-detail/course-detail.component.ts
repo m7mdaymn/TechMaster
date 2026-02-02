@@ -80,11 +80,7 @@ interface Session {
                 <p class="course-description">{{ course()!.shortDescription }}</p>
                 
                 <div class="course-meta">
-                  <div class="meta-item rating">
-                    <span class="material-icons">star</span>
-                    <span class="rating-value">{{ course()!.averageRating | number:'1.1-1' }}</span>
-                    <span class="rating-count">({{ course()!.reviewCount }} reviews)</span>
-                  </div>
+ 
                   <div class="meta-item">
                     <span class="material-icons">people</span>
                     {{ course()!.enrollmentCount }} students

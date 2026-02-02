@@ -29,7 +29,7 @@ interface EarningRecord {
             <span class="material-icons">account_balance_wallet</span>
           </div>
           <div class="stat-info">
-            <span class="stat-value">\${{ totalEarnings().toLocaleString() }}</span>
+            <span class="stat-value">\{{ totalEarnings().toLocaleString() }}</span>
             <span class="stat-label">Total Earnings</span>
           </div>
         </div>
@@ -38,7 +38,7 @@ interface EarningRecord {
             <span class="material-icons">trending_up</span>
           </div>
           <div class="stat-info">
-            <span class="stat-value">\${{ monthlyEarnings().toLocaleString() }}</span>
+            <span class="stat-value">\{{ monthlyEarnings().toLocaleString() }}</span>
             <span class="stat-label">This Month</span>
           </div>
         </div>
@@ -47,7 +47,7 @@ interface EarningRecord {
             <span class="material-icons">hourglass_empty</span>
           </div>
           <div class="stat-info">
-            <span class="stat-value">\${{ pendingPayouts().toLocaleString() }}</span>
+            <span class="stat-value">\{{ pendingPayouts().toLocaleString() }}</span>
             <span class="stat-label">Pending Payout</span>
           </div>
         </div>

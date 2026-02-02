@@ -167,7 +167,7 @@ interface Enrollment {
                   <div class="actions-cell">
                     <button class="action-btn" title="View Details" (click)="viewDetails(enrollment)">👁️</button>
                     
-                    @if (enrollment.status === 'Pending' || enrollment.status === 'UnderReview') {
+                    @if ( enrollment.paymentStatus === 'PaymentPending' || enrollment.status === 'Pending' || enrollment.status === 'UnderReview') {
                       <button class="action-btn success" title="Approve Enrollment" (click)="approveEnrollment(enrollment)">✅ Approve</button>
                       <button class="action-btn danger" title="Reject Enrollment" (click)="rejectEnrollment(enrollment)">❌ Reject</button>
                     }
@@ -937,6 +937,7 @@ export class EnrollmentsComponent implements OnInit {
             paymentScreenshotUrl: e.paymentScreenshotUrl || e.paymentProofUrl || ''
           }));
           
+
           this.enrollments.set(mappedEnrollments);
           this.calculateStats();
           this.filterEnrollments();

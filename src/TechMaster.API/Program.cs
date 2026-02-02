@@ -131,11 +131,21 @@ builder.Services.AddCors(options =>
                 builder.Configuration["AppSettings:FrontendUrl"] ?? "http://localhost:4200",
                 "http://localhost:4200",
                 "http://localhost:4201",
-                "http://localhost:3000"
+                "http://localhost:3000",
+                "https://techmasterapi.runasp.net"  // Allow API to call itself
             )
+            .SetIsOriginAllowedToAllowWildcardSubdomains()
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials();
+    });
+    
+    // Add a more permissive policy for production if needed
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
     });
 });
 
@@ -156,15 +166,17 @@ builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline
-if (app.Environment.IsDevelopment())
+// Enable Swagger in all environments
+app.UseSwagger(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "TechMaster API v1");
-        c.RoutePrefix = "swagger";
-    });
-}
+    c.RouteTemplate = "api/swagger/{documentName}/swagger.json";
+});
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/api/swagger/v1/swagger.json", "TechMaster API v1");
+    c.RoutePrefix = "api/swagger";
+    c.DocumentTitle = "TechMaster API Documentation";
+});
 
 // Use Serilog request logging
 app.UseSerilogRequestLogging();

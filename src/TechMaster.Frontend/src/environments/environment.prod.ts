@@ -1,8 +1,8 @@
 export const environment = {
   production: true,
-  apiUrl: '/api',
+  apiUrl: 'https://techmasterapi.runasp.net/api',
   hubUrl: '/hubs',
-  whatsappNumber: '01029907297',
+  whatsappNumber: '01108894920',
   defaultLanguage: 'en',
   supportedLanguages: ['en', 'ar']
 };

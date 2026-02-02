@@ -14,7 +14,7 @@ interface Enrollment {
   enrolledAt: Date;
   progress: number;
   status: 'Active' | 'Completed' | 'Expired' | 'Refunded' | 'Pending' | 'UnderReview' | 'Approved' | 'Rejected';
-  paymentStatus: 'Paid' | 'PaymentPending' | 'Free';
+  paymentStatus: 'Paid' | 'PaymentPending' | 'Free' | 'pending';
   amount: number;
   paymentScreenshotUrl?: string;
 }
